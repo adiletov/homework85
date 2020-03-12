@@ -26,13 +26,13 @@ const run = async () => {
     );
 
     const tracks = await Track.create(
-        {title: 'Мама', album: albums[0]._id, duration: '2:39'},
-        {title: 'Моя игра', album: albums[0]._id, duration: '5:10'},
-        {title: 'Брат', album: albums[0]._id, duration: '3:07'},
-        {title: 'Гуф умер', album: albums[2]._id, duration: '4:08'},
-        {title: 'Ice baby', album: albums[2]._id, duration: '4:37'},
-        {title: 'Обнимала плечи', album: albums[3]._id, duration: '4:12'},
-        {title: '1001 ночь', album: albums[4]._id, duration: '3:21'},
+        {title: 'Мама', album: albums[0]._id, duration: '2:39', number: 3},
+        {title: 'Моя игра', album: albums[0]._id, duration: '5:10', number: 2},
+        {title: 'Брат', album: albums[0]._id, duration: '3:07', number: 1},
+        {title: 'Гуф умер', album: albums[2]._id, duration: '4:08', number: 2},
+        {title: 'Ice baby', album: albums[2]._id, duration: '4:37', number: 1},
+        {title: 'Обнимала плечи', album: albums[3]._id, duration: '4:12', number: 1},
+        {title: '1001 ночь', album: albums[4]._id, duration: '3:21', number: 1},
     );
     mongoose.connection.close()
 };
