@@ -1,4 +1,4 @@
-import {ORDER_ALBUMS_SUCCESS, ORDER_ARTIST, ORDER_ARTISTS_ERROR, ORDER_ARTISTS_REQUEST} from "./Actionstype";
+import {ORDER_ALBUMS_SUCCESS, ORDER_ARTIST, ORDER_ALBUMS_ERROR, ORDER_ALBUMS_REQUEST} from "./Actionstype";
 import axiosApi from "../../axiosApi";
 
 export const orderAlbumSuccess = (albums) => ({type : ORDER_ALBUMS_SUCCESS, albums});
