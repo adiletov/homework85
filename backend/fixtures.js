@@ -31,8 +31,16 @@ const run = async () => {
         {title: 'Брат', album: albums[0]._id, duration: '3:07', number: 1},
         {title: 'Гуф умер', album: albums[2]._id, duration: '4:08', number: 2},
         {title: 'Ice baby', album: albums[2]._id, duration: '4:37', number: 1},
-        {title: 'Обнимала плечи', album: albums[3]._id, duration: '4:12', number: 1},
+        {title: 'Обнимала плечи', album: albums[3]._id, duration: '4:12', number: 4},
         {title: '1001 ночь', album: albums[4]._id, duration: '3:21', number: 1},
+        {title: 'Любви достойна только мать', album: albums[4]._id, duration: '3:21', number: 3},
+        {title: 'Жизнь игра', album: albums[4]._id, duration: '3:21', number: 2},
+        {title: '100 строк', album: albums[1]._id, duration: '4:37', number: 2},
+        {title: '200 строк', album: albums[1]._id, duration: '4:12', number: 1},
+        {title: '1001 ночь', album: albums[1]._id, duration: '3:21', number: 3},
+        {title: 'Районы', album: albums[3]._id, duration: '4:37', number: 2},
+        {title: 'Игра в стволы', album: albums[3]._id, duration: '4:12', number: 1},
+        {title: 'А ну ка шмара!', album: albums[3]._id, duration: '3:21', number: 3}
     );
     mongoose.connection.close()
 };

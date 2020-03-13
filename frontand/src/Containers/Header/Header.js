@@ -11,9 +11,6 @@ class Header extends Component {
                         <NavItem>
                             <NavLink tag={RouterNavLink} to="/">Исполнители</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink tag={RouterNavLink} to="/">Добавить исполнителя</NavLink>
-                        </NavItem>
                     </Nav>
             </Navbar>
         );

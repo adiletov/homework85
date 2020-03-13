@@ -19,17 +19,9 @@ const newSchema = new Schema({
     number: {
         type: Number,
         required: true,
-        default: 0
     }
 });
 
-
-newSchema.methods.addNumber = function (cb) {
-if (this.isNew){
-    this.number = this.number + 1;
-}
-    this.number++;
-};
 
 
 

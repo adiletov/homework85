@@ -26,8 +26,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const track = new Track(req.body);
+    const albumId = req.body.album;
+    const album = await Track.find({album: albumId}).sort('number');
+    const numberLast = album[album.length - 1].number;
+    track.number = numberLast + 1;
     try {
-        await track.addNumber();
         await track.save();
         res.send(track._id)
     } catch (e) {
