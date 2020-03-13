@@ -2,8 +2,8 @@ import {ORDER_ALBUMS_SUCCESS, ORDER_ARTIST, ORDER_ARTISTS_ERROR, ORDER_ARTISTS_R
 import axiosApi from "../../axiosApi";
 
 export const orderAlbumSuccess = (albums) => ({type : ORDER_ALBUMS_SUCCESS, albums});
-export const orderAlbumError = error => ({type : ORDER_ARTISTS_ERROR, error});
-export const orderAlbumRequest = () => ({type: ORDER_ARTISTS_REQUEST});
+export const orderAlbumError = error => ({type : ORDER_ALBUMS_ERROR, error});
+export const orderAlbumRequest = () => ({type: ORDER_ALBUMS_REQUEST});
 
 export const orderArtist = (artist) => ({type : ORDER_ARTIST, artist});
 
