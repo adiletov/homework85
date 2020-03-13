@@ -1,4 +1,4 @@
-import {ORDER_ALBUMS_ERROR, ORDER_ALBUMS_SUCCESS, ORDER_ARTIST, ORDER_ARTISTS_REQUEST} from "../Actions/Actionstype";
+import {ORDER_ALBUMS_ERROR, ORDER_ALBUMS_SUCCESS, ORDER_ARTIST, ORDER_ALBUMS_REQUEST} from "../Actions/Actionstype";
 
 const initialState = {
     albums: [],
@@ -11,7 +11,7 @@ const reducerAlbums = (state=initialState, action)=>{
     switch (action.type) {
         case ORDER_ALBUMS_SUCCESS:
             return {...state, albums: action.albums, preloader: false};
-        case ORDER_ARTISTS_REQUEST:
+        case ORDER_ALBUMS_REQUEST:
             return {...state, preloader: true};
         case ORDER_ALBUMS_ERROR:
             return {...state, error: action.error , preloader: false};
