@@ -7,25 +7,33 @@ import {createStore,applyMiddleware, combineReducers} from "redux";
 import thunk from "redux-thunk";
 import {Provider} from 'react-redux';
 import reducerArtist from "./Store/Reducers/reducerArtist";
-import {BrowserRouter} from "react-router-dom";
+import {createBrowserHistory} from "history";
+import {connectRouter,routerMiddleware,ConnectedRouter } from "connected-react-router";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reducerAlbums from "./Store/Reducers/reducerAlbums";
 import reducerTracks from "./Store/Reducers/reducerTracks";
 
+const history = createBrowserHistory();
+
+const middleware = [
+    thunk,
+    routerMiddleware(history)
+];
 
 const rootReducer = combineReducers({
+    router: connectRouter(history),
     artists: reducerArtist,
     albums: reducerAlbums,
     tracks: reducerTracks
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(...middleware));
 
 const app = (
     <Provider store={store}>
-        <BrowserRouter>
+        <ConnectedRouter history={history}>
             <App/>
-        </BrowserRouter>
+        </ConnectedRouter>
     </Provider>
 );
 
