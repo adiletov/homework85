@@ -12,5 +12,11 @@ module.exports={
     filename: (req, file, cb) => {
       cb(null, nanoid() + path.extname(file.originalname))
     }
-  })
+  }),
+  database: 'mongodb://localhost/playlist',
+  options: {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  }
 };

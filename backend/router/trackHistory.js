@@ -1,28 +1,12 @@
 const express = require('express');
-const User = require('../modules/user');
 const TrackHistory = require('../modules/trackHistory');
+const auth = require('../middleware/auth');
 const router = express.Router();
 
 
-router.post('/', async (req,res)=>{
 
-    const AuthorizationHeader = req.get('Authorization');
-
-    if (!AuthorizationHeader){
-        return res.status(401).send({error: 'Ой ой что пошло не так!'})
-    }
-
-    const [type, token] = AuthorizationHeader.split(' ');
-
-    if (type !== 'Token' || !token){
-        return res.status(401).send({error: 'Ой ой что пошо не так!'})
-    }
-
-    const user = await User.findOne({token});
-
-    if (!user){
-        res.status(401).send({error: 'Unauthorized'})
-    }
+router.post('/', auth, async (req,res)=>{
+    const user = req.user;
 
     const trackHistory = {
         userId: user._id,
@@ -33,7 +17,6 @@ router.post('/', async (req,res)=>{
     const newTrackHistory = new TrackHistory(trackHistory);
 
     try{
-        await user.generateToken();
         await newTrackHistory.save();
         res.send(newTrackHistory)
     }catch (e) {

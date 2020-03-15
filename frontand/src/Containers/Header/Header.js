@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Nav, Navbar, NavbarBrand,  NavItem, NavLink} from "reactstrap";
 import {NavLink as RouterNavLink} from 'react-router-dom';
+import {useSelector} from "react-redux";
 
-class Header extends Component {
-    render() {
-        return (
+
+const Header = () => {
+    return (
             <Navbar color="light" light expand="md">
                 <NavbarBrand>Playlist</NavbarBrand>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink tag={RouterNavLink} to="/">Исполнители</NavLink>
-                        </NavItem>
-                    </Nav>
+                <Nav className="mr-auto" navbar>
+                    <NavItem>
+                        <NavLink tag={RouterNavLink} to="/">Исполнители</NavLink>
+                    </NavItem>
+                </Nav>
             </Navbar>
-        );
-    }
-}
+    );
+};
 
 export default Header;

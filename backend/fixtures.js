@@ -4,12 +4,16 @@ const Artist = require('./modules/Artist');
 const Album = require('./modules/Album');
 const Track = require('./modules/Track');
 
+const config = require('./config');
+
 const run = async () => {
-    await mongoose.connect('mongodb://localhost/playlist', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true
-    });
+    await mongoose.connect(config.database, config.options);
+    const collections = await mongoose.connection.db.listCollections().toArray();
+
+    for (let coll of collections) {
+        await mongoose.connection.db.dropCollection(coll.name);
+    }
+
 
     const artists = await Artist.create(
         {name: 'Баста', image: 'basta.jpeg'},
@@ -42,7 +46,7 @@ const run = async () => {
         {title: 'Игра в стволы', album: albums[3]._id, duration: '4:12', number: 1},
         {title: 'А ну ка шмара!', album: albums[3]._id, duration: '3:21', number: 3}
     );
-    mongoose.connection.close()
+    await mongoose.connection.close()
 };
 
 run().catch(error => {
