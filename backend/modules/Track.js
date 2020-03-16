@@ -19,7 +19,8 @@ const newSchema = new Schema({
     number: {
         type: Number,
         required: true,
-    }
+    },
+    href: String
 });
 
 

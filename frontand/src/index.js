@@ -12,6 +12,8 @@ import {connectRouter,routerMiddleware,ConnectedRouter } from "connected-react-r
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reducerAlbums from "./Store/Reducers/reducerAlbums";
 import reducerTracks from "./Store/Reducers/reducerTracks";
+import reducerUser from "./Store/Reducers/reducerUser";
+import reducerTrackHistory from "./Store/Reducers/reduceTrackHistory";
 
 const history = createBrowserHistory();
 
@@ -24,7 +26,9 @@ const rootReducer = combineReducers({
     router: connectRouter(history),
     artists: reducerArtist,
     albums: reducerAlbums,
-    tracks: reducerTracks
+    tracks: reducerTracks,
+    users: reducerUser,
+    trackHistory: reducerTrackHistory
 });
 
 const store = createStore(rootReducer, applyMiddleware(...middleware));

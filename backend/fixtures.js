@@ -30,21 +30,21 @@ const run = async () => {
     );
 
     const tracks = await Track.create(
-        {title: 'Мама', album: albums[0]._id, duration: '2:39', number: 3},
-        {title: 'Моя игра', album: albums[0]._id, duration: '5:10', number: 2},
-        {title: 'Брат', album: albums[0]._id, duration: '3:07', number: 1},
-        {title: 'Гуф умер', album: albums[2]._id, duration: '4:08', number: 2},
-        {title: 'Ice baby', album: albums[2]._id, duration: '4:37', number: 1},
-        {title: 'Обнимала плечи', album: albums[3]._id, duration: '4:12', number: 4},
-        {title: '1001 ночь', album: albums[4]._id, duration: '3:21', number: 1},
-        {title: 'Любви достойна только мать', album: albums[4]._id, duration: '3:21', number: 3},
-        {title: 'Жизнь игра', album: albums[4]._id, duration: '3:21', number: 2},
-        {title: '100 строк', album: albums[1]._id, duration: '4:37', number: 2},
-        {title: '200 строк', album: albums[1]._id, duration: '4:12', number: 1},
-        {title: '1001 ночь', album: albums[1]._id, duration: '3:21', number: 3},
-        {title: 'Районы', album: albums[3]._id, duration: '4:37', number: 2},
-        {title: 'Игра в стволы', album: albums[3]._id, duration: '4:12', number: 1},
-        {title: 'А ну ка шмара!', album: albums[3]._id, duration: '3:21', number: 3}
+        {title: 'Мама', album: albums[0]._id, duration: '2:39', number: 3, href:"https://www.youtube.com/embed/_-pIVd4lGMw"},
+        {title: 'Моя игра', album: albums[0]._id, duration: '5:10', number: 2, href: 'https://www.youtube.com/embed/QAYdibGz0DU'},
+        {title: 'Брат', album: albums[0]._id, duration: '3:07', number: 1, href: 'https://www.youtube.com/embed/QcAtojepQss'},
+        {title: 'Гуф умер', album: albums[2]._id, duration: '4:08', number: 2, href: 'https://www.youtube.com/embed/nuJjc8GEp60'},
+        {title: 'Ice baby', album: albums[2]._id, duration: '4:37', number: 1, href: 'https://www.youtube.com/embed/kf70AU7ej5A'},
+        {title: 'Обнимала плечи', album: albums[3]._id, duration: '4:12', number: 4, href: 'https://www.youtube.com/embed/DwLjtMF-tqI'},
+        {title: 'Russian Paradise', album: albums[4]._id, duration: '3:21', number: 1, href: 'https://www.youtube.com/embed/tXEwTaXH5lk'},
+        {title: 'Жульбаны', album: albums[4]._id, duration: '3:21', number: 3, href: 'https://www.youtube.com/embed/BIPf-nHpZMA'},
+        {title: 'NO Passaran!!!', album: albums[4]._id, duration: '3:21', number: 2 , href: 'https://www.youtube.com/embed/6vF2RD-2bLY'},
+        {title: '100 строк', album: albums[2]._id, duration: '4:37', number: 2, href: 'https://www.youtube.com/embed/JzUw4UI5QQk'},
+        {title: '200 строк', album: albums[2]._id, duration: '4:12', number: 1, href: 'https://www.youtube.com/embed/uVVv3cTe41U'},
+        {title: 'Выпускной', album: albums[1]._id, duration: '3:21', number: 3, href: 'https://www.youtube.com/embed/woCjlrBBJko'},
+        {title: 'Районы', album: albums[3]._id, duration: '4:37', number: 2, href: 'https://www.youtube.com/embed/omtJk9ZVEuk'},
+        {title: 'Игра в стволы', album: albums[3]._id, duration: '4:12', number: 1, href: 'https://www.youtube.com/embed/JNWGlsw-m2k'},
+        {title: 'Тем Кто с Нами', album: albums[3]._id, duration: '3:21', number: 3, href: 'https://www.youtube.com/embed/eTlLyxerPWo'}
     );
     await mongoose.connection.close()
 };

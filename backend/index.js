@@ -24,6 +24,7 @@ const run = async () => {
     app.use('/tracks', tracks);
     app.use('/users', users);
     app.use('/track_history', track_history);
+
     app.listen(port);
 };
 

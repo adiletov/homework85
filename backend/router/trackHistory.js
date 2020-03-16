@@ -4,28 +4,36 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 
-
-router.post('/', auth, async (req,res)=>{
+router.post('/', auth, async (req, res) => {
     const user = req.user;
-
     const trackHistory = {
         userId: user._id,
-        trackId: req.body.track,
+        trackId: req.body.id,
         date: new Date()
     };
 
     const newTrackHistory = new TrackHistory(trackHistory);
 
-    try{
+    try {
         await newTrackHistory.save();
         res.send(newTrackHistory)
-    }catch (e) {
+    } catch (e) {
         return res.status(404).send({error: 'not found'})
     }
 });
 
-router.get('/', async (req,res)=>{
-    const trackHistory = await TrackHistory.find().populate('userId').populate('trackId');
+router.get('/', async (req, res) => {
+    const trackHistory = await TrackHistory.find().sort({date: -1}).populate({
+        path: 'trackId',
+        populate: {
+            path: 'album',
+            model: 'Album',
+            populate: {
+                path: 'artist',
+                model: 'Artist'
+            }
+        },
+    });
     res.send(trackHistory)
 });
 
